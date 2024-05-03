@@ -1,0 +1,41 @@
+﻿{
+  BuildStatus: {
+    Key: static-analysis,
+    Name: Static Analysis,
+    State: FAILED,
+    Description: Found 2 issue(s),
+    Url: https://bitbucket.org/test-workspace/test-repo
+  },
+  Report: {
+    Title: Static Analysis,
+    Details: Found 2 issue(s),
+    ExternalId: sarif-report,
+    Reporter: Sarif Pipe,
+    ReportType: BUG,
+    Result: FAILED
+  },
+  Annotations: [
+    {
+      ExternalId: issue-1,
+      AnnotationType: CODE_SMELL,
+      Path: repo1/src/ReportDeserializer.cs,
+      Line: 57,
+      Summary: Inconsistent Naming,
+      Details:
+Name 'SarifRun' does not match rule 'Local variables'. Suggested name is 'sarifRun'.
+https://www.jetbrains.com/resharperplatform/help?Keyword=InconsistentNaming,
+      Result: FAILED
+    },
+    {
+      ExternalId: issue-2,
+      AnnotationType: CODE_SMELL,
+      Path: repo1/src/ReportDeserializer.cs,
+      Line: 49,
+      Summary: Type member is never used: Non-private accessibility,
+      Details:
+Method 'DoNothing' is never used
+https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global,
+      Result: FAILED
+    }
+  ]
+}

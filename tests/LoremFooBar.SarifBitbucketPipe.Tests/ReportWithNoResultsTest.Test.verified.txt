@@ -1,0 +1,15 @@
+﻿{
+  BuildStatus: {
+    Key: static-analysis,
+    Name: Static Analysis,
+    Description: No issues found,
+    Url: https://bitbucket.org/test-workspace/test-repo
+  },
+  Report: {
+    Title: Static Analysis,
+    Details: No issues found,
+    ExternalId: sarif-report,
+    Reporter: Sarif Pipe,
+    ReportType: BUG
+  }
+}

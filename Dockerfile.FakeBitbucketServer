@@ -1,0 +1,17 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine as build
+
+WORKDIR /source
+
+COPY . ./
+
+RUN dotnet restore ./tests/FakeBitbucketServer/FakeBitbucketServer.csproj
+
+RUN dotnet publish -c Release -o /app ./tests/FakeBitbucketServer/FakeBitbucketServer.csproj
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine as runtime
+
+WORKDIR /app
+
+COPY --from=build /app .
+
+ENTRYPOINT ["dotnet", "/app/FakeBitbucketServer.dll"]

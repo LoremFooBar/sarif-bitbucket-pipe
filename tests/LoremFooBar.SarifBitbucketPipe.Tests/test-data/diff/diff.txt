@@ -1,0 +1,77 @@
+diff --git a/README.md b/README.md
+index a8daf32..c481022 100644
+--- a/README.md
++++ b/README.md
+@@ -17,15 +17,6 @@ script:
+       # BITBUCKET_APP_PASSWORD: "<string>" # Optional
+       # LINE_COVERAGE_MINIMUM: "<int>" # Optional, default: 0
+       # BRANCH_COVERAGE_MINIMUM: "<int>" # Optional, default: 0
+-      # PIPELINE_REPORT_TITLE: "<string>" # Optional, default: BUILD_STATUS_NAME if present, else "Code Coverage"
+-      # BUILD_STATUS_NAME: "<string>" # Optional, default: PIPELINE_REPORT_TITLE if present, else "Code Coverage"
+-      # CREATE_BUILD_STATUS: "<boolean>" # Optional, default: true
+-      # FAIL_WHEN_MINIMUM_NOT_MET: "<boolean>" # Optional, default: false
+-      # PUBLISHED_REPORT_URL: "<string>" # Optional
+-      # REPORTS: "<string>" # Optional, default: "**/coverage*.xml"
+-      # REPORT_TYPES: "<string>" # Optional, default: "JsonSummary;Html"
+-      # EXTRA_ARGS: ['arg1', 'arg2'] # Optional
+-      # DEBUG: "<boolean>" # Optional
+ ```
+ 
+ ## Variables
+diff --git a/src/CoverageReportGenerator.cs b/src/CoverageReportGenerator.cs
+index bbd44fe..1983440 100644
+--- a/src/CoverageReportGenerator.cs
++++ b/src/CoverageReportGenerator.cs
+@@ -36,7 +36,9 @@ public class CoverageReportGenerator
+         var reportConfiguration = new ReportConfigurationBuilder().Create(cliArguments);
+         bool reportGenerated = new Generator().GenerateReport(reportConfiguration);
+ 
+-        if (!reportGenerated) throw new ReportGenerationFailedException();
++        if (!reportGenerated) {
++            throw new ReportGenerationFailedException();
++        }
+ 
+         return await ParseCoverageSummaryAsync();
+     }
+diff --git a/src/LoggerInitializer__IGNORE__.cs b/src/LoggerInitializer__IGNORE__.cs
+index 9a6a8ec..e03e433 100644
+--- a/src/LoggerInitializer__IGNORE__.cs
++++ b/src/LoggerInitializer__IGNORE__.cs
+@@ -13,6 +13,8 @@ public static class LoggerInitializer
+         var loggerConfig = new LoggerConfiguration().WriteTo.Console();
+         loggerConfig.MinimumLevel.Is(isDebugOn ? LogEventLevel.Debug : LogEventLevel.Warning);
+ 
++        
++        
+         return loggerConfig.CreateLogger();
+     }
+ }
+diff --git a/src/PipeRunner.cs b/src/PipeRunner.cs
+index 82f7a05..aca41ea 100644
+--- a/src/PipeRunner.cs
++++ b/src/PipeRunner.cs
+@@ -109,3 +109,5 @@ public class PipeRunner
+             Log.Error("Could not authenticate to Bitbucket!");
+     }
+ }
++
++public class Dummy;
+diff --git a/src/Program.cs b/src/Program.cs
+index b0a2da2..366ab29 100644
+--- a/src/Program.cs
++++ b/src/Program.cs
+@@ -12,11 +12,12 @@ internal static class Program
+     // ReSharper disable once InconsistentNaming
+     private static async Task<int> Main()
+     {
+-        bool isDebugMode = new PipeEnvironment(new EnvironmentVariableProvider()).IsDebugMode;
++        var environmentVariableProvider = new EnvironmentVariableProvider();
++        bool isDebugMode = new PipeEnvironment(environmentVariableProvider).IsDebugMode;
+         Log.Logger = LoggerInitializer.CreateLogger(isDebugMode);
+         Log.Debug("DEBUG={IsDebug}", isDebugMode);
+         Log.Debug("Workdir={Workdir}", Environment.CurrentDirectory);
+ 
+-        return await new PipeRunner(new EnvironmentVariableProvider()).RunPipeAsync();
++        return await new PipeRunner(environmentVariableProvider).RunPipeAsync();
+     }
+ }

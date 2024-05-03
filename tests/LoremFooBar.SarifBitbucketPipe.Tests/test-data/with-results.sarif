@@ -1,0 +1,194 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "InconsistentNaming",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Name 'SarifRun' does not match rule 'Local variables'. Suggested name is 'sarifRun'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ReportDeserializer.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 57,
+                  "startColumn": 13,
+                  "endLine": 57,
+                  "endColumn": 21,
+                  "charOffset": 2089,
+                  "charLength": 8
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "9A2BAC111BE5887849C6FC84D02FFE262B24E9059D258126C5E4A19B8E491C44"
+          },
+          "properties": {
+            "tags": [
+              "C#",
+              ".NET 8.0"
+            ]
+          }
+        },
+        {
+          "ruleId": "UnusedMember.Global",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Method 'DoNothing' is never used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/ReportDeserializer.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 49,
+                  "startColumn": 24,
+                  "endLine": 49,
+                  "endColumn": 33,
+                  "charOffset": 1843,
+                  "charLength": 9
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "7514348C60FB8BAF08928BD81B10F79130AE56227D0A32C80B6EFF9A2B719B40"
+          },
+          "properties": {
+            "tags": [
+              "C#",
+              ".NET 8.0"
+            ]
+          }
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "InspectCode",
+          "organization": "JetBrains, Inc",
+          "fullName": "JetBrains Inspect Code 2024.1",
+          "semanticVersion": "241.0.20240408.85029",
+          "informationUri": "http://www.jetbrains.com/resharper/features/command-line.html",
+          "rules": [
+            {
+              "id": "InconsistentNaming",
+              "fullDescription": {
+                "text": "Name doesn't match naming style defined for this kind of symbol"
+              },
+              "help": {
+                "text": "https://www.jetbrains.com/resharperplatform/help?Keyword=InconsistentNaming"
+              },
+              "shortDescription": {
+                "text": "Inconsistent Naming"
+              },
+              "helpUri": "https://www.jetbrains.com/resharperplatform/help?Keyword=InconsistentNaming",
+              "relationships": [
+                {
+                  "target": {
+                    "id": "ConstraintViolation",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "UnusedMember.Global",
+              "fullDescription": {
+                "text": "Type member is never used"
+              },
+              "help": {
+                "text": "https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global"
+              },
+              "shortDescription": {
+                "text": "Type member is never used: Non-private accessibility"
+              },
+              "helpUri": "https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global",
+              "relationships": [
+                {
+                  "target": {
+                    "id": "DeclarationRedundancy",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            }
+          ],
+          "taxa": [
+            {
+              "id": "ConstraintViolation",
+              "shortDescription": {
+                "text": "Constraints Violations"
+              }
+            },
+            {
+              "id": "DeclarationRedundancy",
+              "shortDescription": {
+                "text": "Redundancies in Symbol Declarations"
+              }
+            }
+          ]
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "versionControlProvenance": [
+        {
+          "repositoryUri": "https://example.com/repo1.git",
+          "revisionId": "e39dfee971989f806be5812cc0b373d675c41dd7",
+          "branch": "sarif-support",
+          "mappedTo": {
+            "uriBaseId": "solutionDir"
+          }
+        }
+      ],
+      "originalUriBaseIds": {
+        "solutionDir": {
+          "uri": "file:///repos/repo1/",
+          "description": {
+            "text": "Solution Directory"
+          }
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/ReportDeserializer.cs",
+            "uriBaseId": "solutionDir"
+          },
+          "hashes": {
+            "md5": "00A7F3D95B965A935128A32AA1C9CB0C",
+            "sha-1": "C3FFA931D93EF3052D4B57B0CC7DF9896E7EB4ED",
+            "sha-256": "4D78B169A1B0D5626B3BE2D56888BECD041FAB00C40FC7F9B8C1A2278C876E7B"
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

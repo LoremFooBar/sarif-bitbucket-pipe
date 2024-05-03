@@ -1,0 +1,34 @@
+﻿{
+  Report: {
+    Title: Static Analysis,
+    Details: Found 2 issue(s),
+    ExternalId: sarif-report,
+    Reporter: Sarif Pipe,
+    ReportType: BUG,
+    Result: FAILED
+  },
+  Annotations: [
+    {
+      ExternalId: issue-1,
+      AnnotationType: CODE_SMELL,
+      Path: repo1/src/CoverageReportGenerator.cs,
+      Line: 39,
+      Summary: Use preferred braces style: Remove redundant braces,
+      Details:
+Inconsistent braces style: redundant braces
+https://www.jetbrains.com/resharperplatform/help?Keyword=RemoveRedundantBraces,
+      Result: FAILED
+    },
+    {
+      ExternalId: issue-2,
+      AnnotationType: CODE_SMELL,
+      Path: repo1/src/PipeRunner.cs,
+      Line: 113,
+      Summary: Type is never used: Non-private accessibility,
+      Details:
+Class 'Dummy' is never used
+https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedType.Global,
+      Result: FAILED
+    }
+  ]
+}

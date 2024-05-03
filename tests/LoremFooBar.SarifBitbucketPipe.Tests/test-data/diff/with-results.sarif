@@ -1,0 +1,377 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "RedundantBlankLines",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Blank lines are redundant, expected maximum 2 instead of 3"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/LoggerInitializer.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 1,
+                  "endLine": 18,
+                  "endColumn": 9,
+                  "charOffset": 468,
+                  "charLength": 8
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "FC7A215272A45036E773E93E6CE47C17787036F56494B637D85A9A281FBAF130"
+          },
+          "properties": {
+            "tags": [
+              "C#",
+              ".NET 8.0"
+            ]
+          }
+        },
+        {
+          "ruleId": "RemoveRedundantBraces",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "Inconsistent braces style: redundant braces"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/CoverageReportGenerator.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 31,
+                  "endLine": 39,
+                  "endColumn": 32,
+                  "charOffset": 1376,
+                  "charLength": 1
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "1224B24B744CD6624914F4ED4C7412F1BA065FEC005902A8B2EFC09E0B72E776"
+          },
+          "properties": {
+            "tags": [
+              "C#",
+              ".NET 8.0"
+            ]
+          }
+        },
+        {
+          "ruleId": "UnnecessaryWhitespace",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Unnecessary whitespace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/LoggerInitializer.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 1,
+                  "endLine": 16,
+                  "endColumn": 9,
+                  "charOffset": 448,
+                  "charLength": 8
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "FBC8DBFC3890B9884230F5C3931744EB4E6E5DCECD6A86FBD05BB316E152DD00"
+          },
+          "properties": {
+            "tags": [
+              "C#",
+              ".NET 8.0"
+            ]
+          }
+        },
+        {
+          "ruleId": "UnnecessaryWhitespace",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Unnecessary whitespace"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/LoggerInitializer.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 1,
+                  "endLine": 17,
+                  "endColumn": 9,
+                  "charOffset": 458,
+                  "charLength": 8
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "E59E7F7A5EA6FD1B18E2E5155032B153D8BB9D3E474FED1704820694E4E42721"
+          },
+          "properties": {
+            "tags": [
+              "C#",
+              ".NET 8.0"
+            ]
+          }
+        },
+        {
+          "ruleId": "UnusedType.Global",
+          "ruleIndex": 3,
+          "message": {
+            "text": "Class 'Dummy' is never used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/PipeRunner.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 113,
+                  "startColumn": 14,
+                  "endLine": 113,
+                  "endColumn": 19,
+                  "charOffset": 4925,
+                  "charLength": 5
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "1F25BA208A1DA1F856F2A44CEC1133FCCBFB37BA25DD9D1A821A1A923BA0045B"
+          },
+          "properties": {
+            "tags": [
+              "C#",
+              ".NET 8.0"
+            ]
+          }
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "InspectCode",
+          "organization": "JetBrains, Inc",
+          "fullName": "JetBrains Inspect Code 2024.1.1",
+          "semanticVersion": "241.0.20240415.221055",
+          "informationUri": "http://www.jetbrains.com/resharper/features/command-line.html",
+          "rules": [
+            {
+              "id": "RedundantBlankLines",
+              "help": {
+                "text": "https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantBlankLines"
+              },
+              "shortDescription": {
+                "text": "Incorrect blank lines: Blank lines are redundant elsewhere"
+              },
+              "helpUri": "https://www.jetbrains.com/resharperplatform/help?Keyword=RedundantBlankLines",
+              "relationships": [
+                {
+                  "target": {
+                    "id": "FormattingIssues",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "RemoveRedundantBraces",
+              "fullDescription": {
+                "text": "Braces can be safely removed without changing code semantics"
+              },
+              "help": {
+                "text": "https://www.jetbrains.com/resharperplatform/help?Keyword=RemoveRedundantBraces"
+              },
+              "shortDescription": {
+                "text": "Use preferred braces style: Remove redundant braces"
+              },
+              "helpUri": "https://www.jetbrains.com/resharperplatform/help?Keyword=RemoveRedundantBraces",
+              "relationships": [
+                {
+                  "target": {
+                    "id": "CodeStyleIssues",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "UnnecessaryWhitespace",
+              "fullDescription": {
+                "text": "Remove unnecessary whitespace at the end of line"
+              },
+              "help": {
+                "text": "https://www.jetbrains.com/resharperplatform/help?Keyword=UnnecessaryWhitespace"
+              },
+              "shortDescription": {
+                "text": "Unnecessary whitespace at the end of line"
+              },
+              "helpUri": "https://www.jetbrains.com/resharperplatform/help?Keyword=UnnecessaryWhitespace",
+              "relationships": [
+                {
+                  "target": {
+                    "id": "CodeStyleIssues",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "UnusedType.Global",
+              "fullDescription": {
+                "text": "Type is never used"
+              },
+              "help": {
+                "text": "https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedType.Global"
+              },
+              "shortDescription": {
+                "text": "Type is never used: Non-private accessibility"
+              },
+              "helpUri": "https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedType.Global",
+              "relationships": [
+                {
+                  "target": {
+                    "id": "DeclarationRedundancy",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            }
+          ],
+          "taxa": [
+            {
+              "id": "CodeStyleIssues",
+              "shortDescription": {
+                "text": "Syntax Style"
+              }
+            },
+            {
+              "id": "DeclarationRedundancy",
+              "shortDescription": {
+                "text": "Redundancies in Symbol Declarations"
+              }
+            },
+            {
+              "id": "FormattingIssues",
+              "shortDescription": {
+                "text": "Formatting"
+              }
+            }
+          ]
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "versionControlProvenance": [
+        {
+          "repositoryUri": "https://example.com/repo1.git",
+          "revisionId": "f58570e85dc5918ce665fa015f977b74fecc4236",
+          "branch": "dummy-for-diff",
+          "mappedTo": {
+            "uriBaseId": "solutionDir"
+          }
+        }
+      ],
+      "originalUriBaseIds": {
+        "solutionDir": {
+          "uri": "file:///repos/repo1/",
+          "description": {
+            "text": "Solution Directory"
+          }
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "src/LoggerInitializer.cs",
+            "uriBaseId": "solutionDir"
+          },
+          "hashes": {
+            "md5": "CBA77FCAA457F5316CC8866DEFA07D7A",
+            "sha-1": "4812BECF94B58AE5043351961FAF95CA96E4823C",
+            "sha-256": "ECC3D03445F8A4A10F482EFF2B6F46EBB921B3A9D86F522394F13015C4C8C6D2"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/CoverageReportGenerator.cs",
+            "uriBaseId": "solutionDir"
+          },
+          "hashes": {
+            "md5": "0F827B89E831314FED377490D5C3DBE6",
+            "sha-1": "D77B83F64FADEB3A12DC1DCF6E91F6DEBC3CFB1B",
+            "sha-256": "5224C9D4599968027F08EAED7C0BDE2B50B8BFC6048C5FC69933D81C26D24CB9"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/PipeRunner.cs",
+            "uriBaseId": "solutionDir"
+          },
+          "hashes": {
+            "md5": "96BCB44F1EF2D4541DA2C870BDD7E025",
+            "sha-1": "DD4851CC0E84E5E1897859109944C162FCA2B205",
+            "sha-256": "A799B8BBAB3800026B87B39D5F0B5B817713983AF8F2A5199180F55637518951"
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}
