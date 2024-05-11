@@ -2,4 +2,4 @@ param (
     $Version
 )
 
-docker push -t loremfoobar/sarif-bitbucket-pipe:$Version
+docker push loremfoobar/sarif-bitbucket-pipe:$Version
