@@ -14,7 +14,7 @@ definitions:
           # create pipeline report based on sarif file
           - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
             variables:
-              INSPECTIONS_XML_PATH: "inspect.sarif"
+              SARIF_FILE_PATH: "inspect.sarif"
               BITBUCKET_USERNAME: $LFB_BB_USERNAME
               BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
               DEBUG: "true"
