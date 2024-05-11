@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http.Headers;
 using DiffPatch;
 using LoremFooBar.SarifBitbucketPipe.Model.Diff;
+using Serilog;
 
 namespace LoremFooBar.SarifBitbucketPipe.BitbucketApiClient;
 
@@ -20,7 +21,7 @@ public partial class BitbucketClient
             Headers = { Accept = { new MediaTypeWithQualityHeaderValue("text/plain") } },
         };
 
-        _logger.Debug("GET diff {RequestUri}", requestUri);
+        Log.Debug("GET diff {RequestUri}", requestUri);
         var response = await _httpClient.SendAsync(request);
         string diffStr;
 

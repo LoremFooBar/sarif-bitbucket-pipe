@@ -5,6 +5,8 @@ definitions:
         image: mcr.microsoft.com/dotnet/sdk:8.0
         caches:
           - dotnetcore
+        artifacts:
+          - inspect.sarif
         script:
           - dotnet tool restore
           - dotnet restore --locked-mode

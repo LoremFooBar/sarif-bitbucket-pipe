@@ -20,7 +20,6 @@ public partial class BitbucketClient
     private readonly BitbucketAuthenticationOptions _authOptions;
     private readonly BitbucketEnvironmentInfo _bitbucketEnvironmentInfo;
     private readonly HttpClient _httpClient;
-    private readonly ILogger _logger = Log.Logger;
     private readonly PipeOptions _pipeOptions;
 
     public BitbucketClient(HttpClient client, BitbucketAuthenticationOptions authOptions,
@@ -31,7 +30,7 @@ public partial class BitbucketClient
         _pipeOptions = pipeOptions;
         _authOptions = authOptions;
 
-        _logger.Debug("Base address: {BaseAddress}", client.BaseAddress);
+        Log.Debug("Base address: {BaseAddress}", client.BaseAddress);
     }
 
     private static string Serialize(object obj) => JsonSerializer.Serialize(obj, _jsonSerializerOptions);
@@ -39,11 +38,11 @@ public partial class BitbucketClient
     private static StringContent CreateStringContent(string str) =>
         new(str, Encoding.Default, "application/json");
 
-    private async Task VerifyResponseAsync(HttpResponseMessage response)
+    private static async Task VerifyResponseAsync(HttpResponseMessage response)
     {
         if (!response.IsSuccessStatusCode) {
             string error = await response.Content.ReadAsStringAsync();
-            _logger.Error("Error response: {Error} for request: {RequestUrl}", error,
+            Log.Error("Error response: {Error} for request: {RequestUrl}", error,
                 response.RequestMessage?.RequestUri);
         }
 

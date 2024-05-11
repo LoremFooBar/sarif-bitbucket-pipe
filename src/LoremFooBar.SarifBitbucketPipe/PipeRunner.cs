@@ -43,6 +43,9 @@ public class PipeRunner
             .WriteTo.Console()
             .CreateLogger();
 
+        Log.Debug("Bitbucket environment: {@BitbucketEnvironment}", _bitbucketEnvironmentInfo);
+        Log.Debug("Pipe options: {@PipeOptions}", _pipeOptions);
+
         var file = GetSarifFile(_pipeOptions);
 
         SarifLog sarif;

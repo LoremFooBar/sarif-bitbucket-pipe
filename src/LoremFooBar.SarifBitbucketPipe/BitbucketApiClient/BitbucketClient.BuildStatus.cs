@@ -1,5 +1,6 @@
 ﻿using LoremFooBar.SarifBitbucketPipe.Model.Bitbucket.CommitStatuses;
 using LoremFooBar.SarifBitbucketPipe.Model.Bitbucket.Report;
+using Serilog;
 
 namespace LoremFooBar.SarifBitbucketPipe.BitbucketApiClient;
 
@@ -10,7 +11,7 @@ public partial class BitbucketClient
         if (!_pipeOptions.CreateBuildStatus) return;
 
         if (!_authOptions.UseAuthentication) {
-            _logger.Warning("Will not create build status because authentication info was not provided");
+            Log.Warning("Will not create build status because authentication info was not provided");
 
             return;
         }
@@ -19,7 +20,7 @@ public partial class BitbucketClient
             _bitbucketEnvironmentInfo.RepoSlug);
         string serializedBuildStatus = Serialize(buildStatus);
 
-        _logger.Debug("POSTing build status: {BuildStatus}", serializedBuildStatus);
+        Log.Debug("POSTing build status: {BuildStatus}", serializedBuildStatus);
 
         var response = await _httpClient.PostAsync($"commit/{_bitbucketEnvironmentInfo.CommitHash}/statuses/build",
             CreateStringContent(serializedBuildStatus));

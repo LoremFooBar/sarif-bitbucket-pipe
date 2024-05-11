@@ -16,6 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution 
 		README.md = README.md
 		Dockerfile = Dockerfile
 		Dockerfile.FakeBitbucketServer = Dockerfile.FakeBitbucketServer
+		bitbucket-pipelines.yml = bitbucket-pipelines.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{B2892C6E-ED0A-47BC-B704-9914135CA18B}"

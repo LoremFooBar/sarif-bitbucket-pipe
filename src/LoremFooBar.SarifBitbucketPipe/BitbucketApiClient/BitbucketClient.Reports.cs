@@ -1,6 +1,7 @@
 ﻿using System.Web;
 using LoremFooBar.SarifBitbucketPipe.Model.Bitbucket.CodeAnnotations;
 using LoremFooBar.SarifBitbucketPipe.Model.Bitbucket.Report;
+using Serilog;
 
 namespace LoremFooBar.SarifBitbucketPipe.BitbucketApiClient;
 
@@ -10,7 +11,7 @@ public partial class BitbucketClient
     {
         string serializedReport = Serialize(report);
 
-        _logger.Debug("Sending report: {Report}", serializedReport);
+        Log.Debug("Sending report: {Report}", serializedReport);
 
         var response = await _httpClient.PutAsync(
             $"commit/{_bitbucketEnvironmentInfo.CommitHash}/reports/{HttpUtility.UrlEncode(report.ExternalId)}",
@@ -28,7 +29,7 @@ public partial class BitbucketClient
         int numOfAnnotationsUploaded = 0;
         var annotationsList = annotations.ToList(); // avoid multiple enumerations
 
-        _logger.Debug("Total annotations: {TotalAnnotations}", annotationsList.Count);
+        Log.Debug("Total annotations: {TotalAnnotations}", annotationsList.Count);
 
         while (numOfAnnotationsUploaded < annotationsList.Count &&
                numOfAnnotationsUploaded + maxAnnotationsPerRequest <= maxAnnotations) {
@@ -37,9 +38,9 @@ public partial class BitbucketClient
 
             string serializedAnnotations = Serialize(annotationsToUpload);
 
-            _logger.Debug("POSTing {TotalAnnotations} annotation(s), starting with location {AnnotationsStart}",
-                annotationsToUpload.Count.ToString(), numOfAnnotationsUploaded);
-            _logger.Debug("Annotations in request: {Annotations}", serializedAnnotations);
+            Log.Debug("POSTing {TotalAnnotations} annotation(s), starting with location {AnnotationsStart}",
+                annotationsToUpload.Count, numOfAnnotationsUploaded);
+            Log.Debug("Annotations in request: {Annotations}", serializedAnnotations);
 
             var response = await _httpClient.PostAsync(
                 $"commit/{_bitbucketEnvironmentInfo.CommitHash}/" +
