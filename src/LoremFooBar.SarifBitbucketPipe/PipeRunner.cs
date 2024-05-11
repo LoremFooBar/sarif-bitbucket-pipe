@@ -36,8 +36,11 @@ public class PipeRunner
     public async Task RunPipe()
     {
         bool isDebug = _environment.GetBool(EnvironmentVariable.Debug) == true;
+        var logLevel = isDebug ? LogEventLevel.Debug : LogEventLevel.Warning;
+        Console.WriteLine($"Log level is: {logLevel}");
         Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Is(isDebug ? LogEventLevel.Debug : LogEventLevel.Warning)
+            .MinimumLevel.Is(logLevel)
+            .WriteTo.Console()
             .CreateLogger();
 
         var file = GetSarifFile(_pipeOptions);
