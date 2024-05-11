@@ -1,0 +1,469 @@
+{
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.6.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "CollectionNeverQueried.Global",
+          "ruleIndex": 0,
+          "message": {
+            "text": "Content of collection 'Annotations' is only updated but never used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/FakeBitbucketServer/Program.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 33,
+                  "endLine": 54,
+                  "endColumn": 44,
+                  "charOffset": 2106,
+                  "charLength": 11
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "C02D9FA82256C2DFC8A6DE06689B9EA1D03527B9674306C53445C6F0B24305DF"
+          },
+          "properties": {
+            "tags": ["C#",".NET 8.0"]
+          }
+        },
+        {
+          "ruleId": "NotAccessedPositionalProperty.Global",
+          "ruleIndex": 1,
+          "message": {
+            "text": "Positional property 'LoremFooBar.SarifBitbucketPipe.Model.Diff.AddedLinesInFile.FilePath' is never accessed (except in implicit Equals/ToString implementations)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/LoremFooBar.SarifBitbucketPipe/Model/Diff/AddedLinesInFile.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 1
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 39,
+                  "endLine": 3,
+                  "endColumn": 47,
+                  "charOffset": 92,
+                  "charLength": 8
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "BA85FEF218912C778902687CFE54BD91538564EC883FA82F8C70954901E7CFC9"
+          },
+          "properties": {
+            "tags": ["C#",".NET 8.0"]
+          }
+        },
+        {
+          "ruleId": "PropertyCanBeMadeInitOnly.Global",
+          "ruleIndex": 2,
+          "message": {
+            "text": "Property can be made init-only"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/FakeBitbucketServer/Program.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 45,
+                  "endLine": 59,
+                  "endColumn": 48,
+                  "charOffset": 2212,
+                  "charLength": 3
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "9331F7E820E835213C223414F0719F9BE0F527740C7730A6833F65C68708295E"
+          },
+          "properties": {
+            "tags": ["C#",".NET 8.0"]
+          }
+        },
+        {
+          "ruleId": "UnusedAutoPropertyAccessor.Global",
+          "ruleIndex": 3,
+          "message": {
+            "text": "Auto-property accessor 'BuildStatus.get' is never used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/FakeBitbucketServer/Program.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 52,
+                  "startColumn": 43,
+                  "endLine": 52,
+                  "endColumn": 47,
+                  "charOffset": 2010,
+                  "charLength": 4
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "3781C0225AE7963C4CD0C4C5EB69B40E4B67D4C845E3113C875624F258F27F6F"
+          },
+          "properties": {
+            "tags": ["C#",".NET 8.0"]
+          }
+        },
+        {
+          "ruleId": "UnusedAutoPropertyAccessor.Global",
+          "ruleIndex": 3,
+          "message": {
+            "text": "Auto-property accessor 'Report.get' is never used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/FakeBitbucketServer/Program.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 0
+                },
+                "region": {
+                  "startLine": 53,
+                  "startColumn": 41,
+                  "endLine": 53,
+                  "endColumn": 45,
+                  "charOffset": 2062,
+                  "charLength": 4
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "99623DF8F1224AD28EFEF289C15E73257DEB9F9CEFB1687EBA340B079F1EE35D"
+          },
+          "properties": {
+            "tags": ["C#",".NET 8.0"]
+          }
+        },
+        {
+          "ruleId": "UnusedMember.Global",
+          "ruleIndex": 4,
+          "message": {
+            "text": "Method 'GetStringOrDefault' is never used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/LoremFooBar.SarifBitbucketPipe/PipeEnvironment/IEnvironment.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 12,
+                  "endLine": 11,
+                  "endColumn": 30,
+                  "charOffset": 329,
+                  "charLength": 18
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "8DE3D7F6BAD05F4B14623D4B534C6BBA7B0160FD636CB1A63E1A7E03B4771020"
+          },
+          "properties": {
+            "tags": ["C#",".NET 8.0"]
+          }
+        },
+        {
+          "ruleId": "UnusedMember.Global",
+          "ruleIndex": 4,
+          "message": {
+            "text": "Method 'IsEnvironment' is never used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/LoremFooBar.SarifBitbucketPipe/PipeEnvironment/IEnvironment.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 2
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 10,
+                  "endLine": 17,
+                  "endColumn": 23,
+                  "charOffset": 590,
+                  "charLength": 13
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "B3138B8C1864D0DFAF9255CC5EAF2A0AC9AD56D8998B15FA1D934CE621F3B7DA"
+          },
+          "properties": {
+            "tags": ["C#",".NET 8.0"]
+          }
+        },
+        {
+          "ruleId": "UnusedMember.Global",
+          "ruleIndex": 4,
+          "message": {
+            "text": "Property 'Development' is never used"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/LoremFooBar.SarifBitbucketPipe/PipeEnvironment/EnvironmentName.cs",
+                  "uriBaseId": "solutionDir",
+                  "index": 3
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 35,
+                  "endLine": 9,
+                  "endColumn": 46,
+                  "charOffset": 220,
+                  "charLength": 11
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "contextRegionHash/v1": "B56E27D05CB756FB257003F55D86C4F9D68C46766F3C9B35ED6A8134C8B746B6"
+          },
+          "properties": {
+            "tags": ["C#",".NET 8.0"]
+          }
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "InspectCode",
+          "organization": "JetBrains, Inc",
+          "fullName": "JetBrains Inspect Code 2024.1.1",
+          "semanticVersion": "241.0.20240415.221055",
+          "informationUri": "http://www.jetbrains.com/resharper/features/command-line.html",
+          "rules": [
+            {
+              "id": "CollectionNeverQueried.Global",
+              "fullDescription": {
+                "text": "Elements are only added to the collection but never used"
+              },
+              "help": {
+                "text": "https://www.jetbrains.com/resharperplatform/help?Keyword=CollectionNeverQueried.Global"
+              },
+              "shortDescription": {
+                "text": "Collection content is never queried: Non-private accessibility"
+              },
+              "helpUri": "https://www.jetbrains.com/resharperplatform/help?Keyword=CollectionNeverQueried.Global",
+              "relationships": [
+                {
+                  "target": {
+                    "id": "CodeSmell",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "NotAccessedPositionalProperty.Global",
+              "fullDescription": {
+                "text": "Positional property is never accessed for reading"
+              },
+              "help": {
+                "text": "https://www.jetbrains.com/resharperplatform/help?Keyword=NotAccessedPositionalProperty.Global"
+              },
+              "shortDescription": {
+                "text": "Non-accessed positional property: Non-private accessibility"
+              },
+              "helpUri": "https://www.jetbrains.com/resharperplatform/help?Keyword=NotAccessedPositionalProperty.Global",
+              "relationships": [
+                {
+                  "target": {
+                    "id": "CodeSmell",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "PropertyCanBeMadeInitOnly.Global",
+              "fullDescription": {
+                "text": "Property setter can be replaced with 'init' accessor to enforce property immutability"
+              },
+              "shortDescription": {
+                "text": "Property can be made init-only: Non-private accessibility"
+              },
+              "relationships": [
+                {
+                  "target": {
+                    "id": "BestPractice",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "UnusedAutoPropertyAccessor.Global",
+              "fullDescription": {
+                "text": "Accessor in auto-property is never used"
+              },
+              "shortDescription": {
+                "text": "Auto-property accessor is never used: Non-private accessibility"
+              },
+              "relationships": [
+                {
+                  "target": {
+                    "id": "CodeSmell",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "UnusedMember.Global",
+              "fullDescription": {
+                "text": "Type member is never used"
+              },
+              "help": {
+                "text": "https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global"
+              },
+              "shortDescription": {
+                "text": "Type member is never used: Non-private accessibility"
+              },
+              "helpUri": "https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global",
+              "relationships": [
+                {
+                  "target": {
+                    "id": "DeclarationRedundancy",
+                    "toolComponent": {
+                      "name": "InspectCode"
+                    }
+                  },
+                  "kinds": [
+                    "superset"
+                  ]
+                }
+              ]
+            }
+          ],
+          "taxa": [
+            {
+              "id": "BestPractice",
+              "shortDescription": {
+                "text": "Common Practices and Code Improvements"
+              }
+            },
+            {
+              "id": "CodeSmell",
+              "shortDescription": {
+                "text": "Potential Code Quality Issues"
+              }
+            },
+            {
+              "id": "DeclarationRedundancy",
+              "shortDescription": {
+                "text": "Redundancies in Symbol Declarations"
+              }
+            }
+          ]
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "versionControlProvenance": [
+        {
+          "repositoryUri": "http://bitbucket.org/loremfoobar/sarif-bitbucket-pipe",
+          "revisionId": "0bb128bcf9355384a382ece352ce87d8815d67c9",
+          "branch": "pipelines",
+          "mappedTo": {
+            "uriBaseId": "solutionDir"
+          }
+        }
+      ],
+      "originalUriBaseIds": {
+        "solutionDir": {
+          "uri": "file:///opt/atlassian/pipelines/agent/build/",
+          "description": {
+            "text": "Solution Directory"
+          }
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "tests/FakeBitbucketServer/Program.cs",
+            "uriBaseId": "solutionDir"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/LoremFooBar.SarifBitbucketPipe/Model/Diff/AddedLinesInFile.cs",
+            "uriBaseId": "solutionDir"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/LoremFooBar.SarifBitbucketPipe/PipeEnvironment/IEnvironment.cs",
+            "uriBaseId": "solutionDir"
+          }
+        },
+        {
+          "location": {
+            "uri": "src/LoremFooBar.SarifBitbucketPipe/PipeEnvironment/EnvironmentName.cs",
+            "uriBaseId": "solutionDir"
+          }
+        }
+      ],
+      "columnKind": "utf16CodeUnits"
+    }
+  ]
+}

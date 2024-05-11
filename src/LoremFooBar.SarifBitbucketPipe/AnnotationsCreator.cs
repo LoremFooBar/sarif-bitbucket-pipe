@@ -10,7 +10,18 @@ public class AnnotationsCreator
 
     public AnnotationsCreator(BitbucketEnvironmentInfo environmentInfo)
     {
-        Uri.TryCreate("file:///" + environmentInfo.CloneDir, UriKind.Absolute, out _cloneDirUri);
+        bool endsWithSlash = environmentInfo.CloneDir.EndsWith('\\') || environmentInfo.CloneDir.EndsWith('/');
+        string cloneDir;
+
+        if (endsWithSlash)
+            cloneDir = environmentInfo.CloneDir;
+        else {
+            cloneDir = environmentInfo.CloneDir.StartsWith('/')
+                ? environmentInfo.CloneDir + '/'
+                : environmentInfo.CloneDir + '\\';
+        }
+
+        Uri.TryCreate("file://" + cloneDir, UriKind.Absolute, out _cloneDirUri);
     }
 
     public IEnumerable<Annotation> CreateAnnotationsFromSarifResults(
@@ -71,6 +82,8 @@ public class AnnotationsCreator
             absoluteUri = new Uri(baseLocation.Uri, resultUri);
         }
 
-        return absoluteUri.ToString()[(_cloneDirUri.ToString().Length + 1)..];
+        return _cloneDirUri.IsBaseOf(absoluteUri)
+            ? _cloneDirUri.MakeRelativeUri(absoluteUri).ToString()
+            : absoluteUri.ToString()[(_cloneDirUri.ToString().Length + 1)..];
     }
 }

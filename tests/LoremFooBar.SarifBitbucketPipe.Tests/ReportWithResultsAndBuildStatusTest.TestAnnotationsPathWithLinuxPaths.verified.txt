@@ -1,0 +1,101 @@
+﻿{
+  BuildStatus: {
+    Key: static-analysis,
+    Name: Static Analysis,
+    State: FAILED,
+    Description: Found 8 issue(s),
+    Url: https://bitbucket.org/test-workspace/test-repo
+  },
+  Report: {
+    Title: Static Analysis,
+    Details: Found 8 issue(s),
+    ExternalId: sarif-report,
+    Reporter: Sarif Pipe,
+    ReportType: BUG,
+    Result: FAILED
+  },
+  Annotations: [
+    {
+      ExternalId: issue-1,
+      AnnotationType: CODE_SMELL,
+      Path: tests/FakeBitbucketServer/Program.cs,
+      Line: 54,
+      Summary: Collection content is never queried: Non-private accessibility,
+      Details:
+Content of collection 'Annotations' is only updated but never used
+https://www.jetbrains.com/resharperplatform/help?Keyword=CollectionNeverQueried.Global,
+      Result: FAILED
+    },
+    {
+      ExternalId: issue-2,
+      AnnotationType: CODE_SMELL,
+      Path: src/LoremFooBar.SarifBitbucketPipe/Model/Diff/AddedLinesInFile.cs,
+      Line: 3,
+      Summary: Non-accessed positional property: Non-private accessibility,
+      Details:
+Positional property 'LoremFooBar.SarifBitbucketPipe.Model.Diff.AddedLinesInFile.FilePath' is never accessed (except in implicit Equals/ToString implementations)
+https://www.jetbrains.com/resharperplatform/help?Keyword=NotAccessedPositionalProperty.Global,
+      Result: FAILED
+    },
+    {
+      ExternalId: issue-3,
+      AnnotationType: CODE_SMELL,
+      Path: tests/FakeBitbucketServer/Program.cs,
+      Line: 59,
+      Summary: Property can be made init-only: Non-private accessibility,
+      Details: Property can be made init-only,
+      Result: FAILED
+    },
+    {
+      ExternalId: issue-4,
+      AnnotationType: CODE_SMELL,
+      Path: tests/FakeBitbucketServer/Program.cs,
+      Line: 52,
+      Summary: Auto-property accessor is never used: Non-private accessibility,
+      Details: Auto-property accessor 'BuildStatus.get' is never used,
+      Result: FAILED
+    },
+    {
+      ExternalId: issue-5,
+      AnnotationType: CODE_SMELL,
+      Path: tests/FakeBitbucketServer/Program.cs,
+      Line: 53,
+      Summary: Auto-property accessor is never used: Non-private accessibility,
+      Details: Auto-property accessor 'Report.get' is never used,
+      Result: FAILED
+    },
+    {
+      ExternalId: issue-6,
+      AnnotationType: CODE_SMELL,
+      Path: src/LoremFooBar.SarifBitbucketPipe/PipeEnvironment/IEnvironment.cs,
+      Line: 11,
+      Summary: Type member is never used: Non-private accessibility,
+      Details:
+Method 'GetStringOrDefault' is never used
+https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global,
+      Result: FAILED
+    },
+    {
+      ExternalId: issue-7,
+      AnnotationType: CODE_SMELL,
+      Path: src/LoremFooBar.SarifBitbucketPipe/PipeEnvironment/IEnvironment.cs,
+      Line: 17,
+      Summary: Type member is never used: Non-private accessibility,
+      Details:
+Method 'IsEnvironment' is never used
+https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global,
+      Result: FAILED
+    },
+    {
+      ExternalId: issue-8,
+      AnnotationType: CODE_SMELL,
+      Path: src/LoremFooBar.SarifBitbucketPipe/PipeEnvironment/EnvironmentName.cs,
+      Line: 9,
+      Summary: Type member is never used: Non-private accessibility,
+      Details:
+Property 'Development' is never used
+https://www.jetbrains.com/resharperplatform/help?Keyword=UnusedMember.Global,
+      Result: FAILED
+    }
+  ]
+}
