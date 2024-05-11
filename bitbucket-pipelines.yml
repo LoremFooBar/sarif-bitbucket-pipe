@@ -1,0 +1,85 @@
+definitions:
+  steps:
+    - step: &build-and-test
+        name: Build and test
+        image: mcr.microsoft.com/dotnet/sdk:8.0
+        caches:
+          - dotnetcore
+        script:
+          - dotnet tool restore
+          - dotnet restore --locked-mode
+          - dotnet build --no-restore
+          - dotnet jb inspectcode --no-build --config=inspectcode.config
+          
+          # create pipeline report based on sarif file
+          - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
+            variables:
+              INSPECTIONS_XML_PATH: "inspect.sarif"
+              BITBUCKET_USERNAME: $LFB_BB_USERNAME
+              BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
+              DEBUG: "true"
+
+          - |-
+            dotnet test \
+              --no-build \
+              "--logger:junit;LogFilePath=./test-reports/results.xml" \
+              --collect:"XPlat Code Coverage"
+
+          # download and extract history storage plugin
+          - export ZIP_FILE_NAME=history-storage-plugin.zip PLUGIN_TARGET_DIR=$BITBUCKET_CLONE_DIR/history-storage-plugin
+          - apt-get update && apt-get install -y unzip
+          - |-
+            curl -o $ZIP_FILE_NAME -L \
+              https://github.com/LoremFooBar/ReportGenerator.AzureBlobHistoryStorage/releases/download/v3.0.0/net8.0.zip
+          - unzip $ZIP_FILE_NAME -d $PLUGIN_TARGET_DIR
+
+          - export COMMIT_IDS=$(git log --format="%H" -n 50 | tr '\n' ',')
+
+          # generate coverage report
+          - pipe: docker://loremfoobar/reportgenerator-coverage-bitbucket-pipe:1.0.0
+            variables:
+              BITBUCKET_USERNAME: $LFB_BB_USERNAME
+              BITBUCKET_APP_PASSWORD: $LFB_READ_BB_APP_PASSWORD
+              LINE_COVERAGE_MINIMUM: "90"
+              BRANCH_COVERAGE_MINIMUM: "75"
+              PUBLISHED_REPORT_URL: "$COVERAGE_REPORTS_BLOB_CONTAINER_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT/index.htm"
+              EXTRA_ARGS: [
+                '"-plugins:$PLUGIN_TARGET_DIR/ReportGenerator.AzureBlobHistoryStorage.dll"',
+                '"-tag:Build #${BITBUCKET_BUILD_NUMBER} | Commit ${BITBUCKET_COMMIT:0:8}"',
+                '"-title:${BITBUCKET_REPO_SLUG^} | Build #${BITBUCKET_BUILD_NUMBER} | Commit ${BITBUCKET_COMMIT:0:8}"'
+              ]
+              HISTORYCONTAINERURL: $COVERAGE_HISTORY_BLOB_CONTAINER_URL
+              WRITESASTOKEN: $COVERAGE_HISTORY_BLOB_WRITE_SAS
+              REPOSITORYNAME: $BITBUCKET_REPO_SLUG
+              COMMITIDS: $COMMIT_IDS
+              DEBUG: "true"
+
+          # upload coverage report
+          - pipe: atlassian/azure-storage-deploy:1.1.0
+            variables:
+              SOURCE: "coverage-report/*"
+              DESTINATION: "$COVERAGE_REPORTS_BLOB_CONTAINER_URL/$BITBUCKET_REPO_SLUG/$BITBUCKET_COMMIT"
+              DESTINATION_SAS_TOKEN: ?$COVERAGE_REPORT_BLOB_WRITE_SAS
+              DEBUG: "true"
+
+    - step: &release
+        name: Release
+        image: atlassian/default-image:4
+        services:
+          - docker
+        script:
+          - echo $DOCKERHUB_ACCESS_TOKEN | docker login -u $DOCKERHUB_USERNAME --password-stdin
+          - export image_tag=${BITBUCKET_TAG:1}
+          - docker build -t $IMAGE_NAME:$image_tag .
+          - docker push $IMAGE_NAME:$image_tag
+
+pipelines:
+  pull-requests:
+    "**":
+      - step: *build-and-test
+  branches:
+    main:
+      - step: *build-and-test
+  tags:
+    "v*.*.*":
+      - step: *release
