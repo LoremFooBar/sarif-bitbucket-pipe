@@ -6,8 +6,6 @@ public record struct EnvironmentVariable
 
     private EnvironmentVariable(string name) => Name = name;
 
-    public static EnvironmentVariable DotnetEnvironment { get; } = new("DOTNET_ENVIRONMENT");
-
     // pipe options
     public static EnvironmentVariable Debug { get; } = new("DEBUG");
     public static EnvironmentVariable CreateBuildStatus { get; } = new("CREATE_BUILD_STATUS");

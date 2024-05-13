@@ -47,6 +47,7 @@ app.Run();
 
 namespace FakeBitbucketServer
 {
+    [Serializable]
     public class BitbucketServerStore
     {
         public BuildStatus? BuildStatus { get; set; }
@@ -56,7 +57,7 @@ namespace FakeBitbucketServer
 
     public class Diff
     {
-        public required string Value { get; set; }
+        public required string Value { get; init; }
     }
 }
 

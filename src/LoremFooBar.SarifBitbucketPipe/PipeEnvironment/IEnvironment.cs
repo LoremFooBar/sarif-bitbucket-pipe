@@ -1,5 +1,8 @@
-﻿namespace LoremFooBar.SarifBitbucketPipe.PipeEnvironment;
+﻿using JetBrains.Annotations;
 
+namespace LoremFooBar.SarifBitbucketPipe.PipeEnvironment;
+
+[PublicAPI]
 public interface IEnvironment
 {
     string? GetString(EnvironmentVariable variable);
@@ -13,8 +16,4 @@ public interface IEnvironment
 
     bool? GetBool(EnvironmentVariable variable) =>
         GetString(variable)?.Equals("true", StringComparison.OrdinalIgnoreCase);
-
-    bool IsEnvironment(EnvironmentName environmentName) =>
-        (GetString(EnvironmentVariable.DotnetEnvironment) ?? EnvironmentName.Production)
-        .Equals(environmentName, StringComparison.OrdinalIgnoreCase);
 }
