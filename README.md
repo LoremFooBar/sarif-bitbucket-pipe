@@ -58,7 +58,7 @@ Basic example:
 script:
   - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
     variables:
-      INSPECTIONS_XML_PATH: "issues.sarif"
+      SARIF_FILE_PATH: "issues.sarif"
 ```
 
 With pattern:
@@ -67,7 +67,7 @@ With pattern:
 script:
   - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
     variables:
-      INSPECTIONS_XML_PATH: "src/*/issues.sarif"
+      SARIF_FILE_PATH: "src/*/issues.sarif"
 ```
 
 With app password (you should use secure variables for username and app
@@ -77,7 +77,7 @@ password):
 script:
   - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
     variables:
-      INSPECTIONS_XML_PATH: "issues.sarif"
+      SARIF_FILE_PATH: "issues.sarif"
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
 ```
@@ -88,7 +88,7 @@ With build status creation disabled:
 script:
   - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
     variables:
-      INSPECTIONS_XML_PATH: "issues.sarif"
+      SARIF_FILE_PATH: "issues.sarif"
       BITBUCKET_USERNAME: $USERNAME
       BITBUCKET_APP_PASSWORD: $APP_PASSWORD
       CREATE_BUILD_STATUS: "false"
