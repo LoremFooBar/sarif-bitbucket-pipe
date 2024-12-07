@@ -9,7 +9,7 @@ Add the following snippet to the script section of your `bitbucket-pipelines.yml
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
+  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
     variables:
       SARIF_FILE_PATH: "<string>"
       # BITBUCKET_USERNAME: "<string>" # Optional
@@ -56,7 +56,7 @@ Basic example:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
+  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
     variables:
       SARIF_FILE_PATH: "issues.sarif"
 ```
@@ -65,7 +65,7 @@ With pattern:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
+  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
     variables:
       SARIF_FILE_PATH: "src/*/issues.sarif"
 ```
@@ -75,7 +75,7 @@ password):
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
+  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
     variables:
       SARIF_FILE_PATH: "issues.sarif"
       BITBUCKET_USERNAME: $USERNAME
@@ -86,7 +86,7 @@ With build status creation disabled:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.0
+  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
     variables:
       SARIF_FILE_PATH: "issues.sarif"
       BITBUCKET_USERNAME: $USERNAME

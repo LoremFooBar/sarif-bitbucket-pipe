@@ -1,5 +1,5 @@
 name: Sarif Report
-image: loremfoobar/sarif-bitbucket-pipe:0.1.0
+image: loremfoobar/sarif-bitbucket-pipe:0.1.1
 description: Generate pipeline report and a build status based on SARIF file
 category: Code Quality
 repository: https://bitbucket.org/loremfoobar/sarif-bitbucket-pipe
