@@ -51,7 +51,7 @@ public class AnnotationsCreator
                 AnnotationType = AnnotationType.CodeSmell,
                 Path = pathRelativeToCloneDir,
                 Line = physicalLocation.Region.StartLine,
-                Summary = string.IsNullOrWhiteSpace(rule.ShortDescription.Text)
+                Summary = string.IsNullOrWhiteSpace(rule.ShortDescription?.Text)
                     ? rule.FullDescription.Text
                     : rule.ShortDescription.Text,
                 Details = details,
