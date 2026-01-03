@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine as build
+FROM mcr.microsoft.com/dotnet/sdk:10.0-alpine AS build
 
 WORKDIR /source
 
@@ -8,7 +8,7 @@ RUN dotnet restore ./tests/FakeBitbucketServer/FakeBitbucketServer.csproj
 
 RUN dotnet publish -c Release -o /app ./tests/FakeBitbucketServer/FakeBitbucketServer.csproj
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine as runtime
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine AS runtime
 
 WORKDIR /app
 
