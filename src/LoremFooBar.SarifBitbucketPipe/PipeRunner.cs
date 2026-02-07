@@ -74,7 +74,7 @@ public class PipeRunner
         var httpClient = ConfigureClient(_bitbucketHttpClient ?? CreateHttpClient());
 
         var bitbucketClient =
-            new BitbucketClient(httpClient, _authOptions, pipeOptions, bitbucketEnvironmentInfo);
+            new BitbucketClient(httpClient, pipeOptions, bitbucketEnvironmentInfo);
 
         return bitbucketClient;
 

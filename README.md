@@ -9,7 +9,7 @@ Add the following snippet to the script section of your `bitbucket-pipelines.yml
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
+  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.2.0
     variables:
       SARIF_FILE_PATH: "<string>"
       ACCOUNT_EMAIL: "<string>"
@@ -60,7 +60,7 @@ Basic example (both `ACCOUNT_EMAIL` and `API_TOKEN` are required):
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
+  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.2.0
     variables:
       SARIF_FILE_PATH: "issues.sarif"
       ACCOUNT_EMAIL: $ACCOUNT_EMAIL
@@ -71,7 +71,7 @@ With pattern:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
+  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.2.0
     variables:
       SARIF_FILE_PATH: "src/*/issues.sarif"
       ACCOUNT_EMAIL: $ACCOUNT_EMAIL
@@ -82,7 +82,7 @@ With failure on issues:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
+  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.2.0
     variables:
       SARIF_FILE_PATH: "issues.sarif"
       ACCOUNT_EMAIL: $ACCOUNT_EMAIL
@@ -94,7 +94,7 @@ With build status creation disabled:
 
 ```yaml
 script:
-  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.1.1
+  - pipe: docker://loremfoobar/sarif-bitbucket-pipe:0.2.0
     variables:
       SARIF_FILE_PATH: "issues.sarif"
       ACCOUNT_EMAIL: $ACCOUNT_EMAIL

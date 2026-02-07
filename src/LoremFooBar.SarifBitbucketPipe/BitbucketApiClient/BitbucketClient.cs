@@ -17,18 +17,16 @@ public partial class BitbucketClient
         Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
     };
 
-    private readonly BitbucketAuthenticationOptions _authOptions;
     private readonly BitbucketEnvironmentInfo _bitbucketEnvironmentInfo;
     private readonly HttpClient _httpClient;
     private readonly PipeOptions _pipeOptions;
 
-    public BitbucketClient(HttpClient client, BitbucketAuthenticationOptions authOptions,
+    public BitbucketClient(HttpClient client,
         PipeOptions pipeOptions, BitbucketEnvironmentInfo bitbucketEnvironmentInfo)
     {
         _httpClient = client;
         _bitbucketEnvironmentInfo = bitbucketEnvironmentInfo;
         _pipeOptions = pipeOptions;
-        _authOptions = authOptions;
 
         Log.Debug("Base address: {BaseAddress}", client.BaseAddress);
     }

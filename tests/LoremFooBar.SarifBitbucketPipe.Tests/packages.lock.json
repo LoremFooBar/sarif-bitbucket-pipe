@@ -575,7 +575,7 @@
       "fakebitbucketserver": {
         "type": "Project",
         "dependencies": {
-          "LoremFooBar.SarifBitbucketPipe": "[0.1.1, )"
+          "LoremFooBar.SarifBitbucketPipe": "[0.2.0, )"
         }
       },
       "loremfoobar.sarifbitbucketpipe": {
