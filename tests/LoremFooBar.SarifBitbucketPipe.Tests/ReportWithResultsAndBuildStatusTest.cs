@@ -21,8 +21,8 @@ public class ReportWithResultsAndBuildStatusTest
             [EnvironmentVariable.BitbucketCloneDir] = "/repos",
             [EnvironmentVariable.BitbucketPrId] = null,
 
-            [EnvironmentVariable.BitbucketUsername] = "username",
-            [EnvironmentVariable.BitbucketAppPassword] = "1234",
+            [EnvironmentVariable.AccountEmail] = "user@example.com",
+            [EnvironmentVariable.ApiToken] = "1234",
 
             [EnvironmentVariable.SarifFilePath] = "test-data/with-results.sarif",
             [EnvironmentVariable.FailWhenIssuesFound] = failWhenIssuesFound.ToString().ToLower(),
@@ -61,8 +61,8 @@ public class ReportWithResultsAndBuildStatusTest
             [EnvironmentVariable.BitbucketCloneDir] = "/opt/atlassian/pipelines/agent/build",
             [EnvironmentVariable.BitbucketPrId] = null,
 
-            [EnvironmentVariable.BitbucketUsername] = "username",
-            [EnvironmentVariable.BitbucketAppPassword] = "1234",
+            [EnvironmentVariable.AccountEmail] = "user@example.com",
+            [EnvironmentVariable.ApiToken] = "1234",
 
             [EnvironmentVariable.SarifFilePath] = "test-data/with-results-real-bitbucket-paths.sarif",
         };

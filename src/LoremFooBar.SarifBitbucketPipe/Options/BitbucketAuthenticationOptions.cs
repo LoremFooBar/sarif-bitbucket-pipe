@@ -6,16 +6,20 @@ namespace LoremFooBar.SarifBitbucketPipe.Options;
 [Serializable]
 public class BitbucketAuthenticationOptions
 {
-    public string? Username { get; set; }
-    public string? AppPassword { get; set; }
+    public string AccountEmail { get; set; } = string.Empty;
+    public string ApiToken { get; set; } = string.Empty;
 
-    [MemberNotNullWhen(true, nameof(Username), nameof(AppPassword))]
-    public bool UseAuthentication => !string.IsNullOrWhiteSpace(Username) && !string.IsNullOrWhiteSpace(AppPassword);
+    [MemberNotNull(nameof(AccountEmail), nameof(ApiToken))]
+    public void Validate()
+    {
+        if (string.IsNullOrWhiteSpace(AccountEmail)) throw new ArgumentException("ACCOUNT_EMAIL is required.");
+        if (string.IsNullOrWhiteSpace(ApiToken)) throw new ArgumentException("API_TOKEN is required.");
+    }
 
     public static BitbucketAuthenticationOptions FromEnvironment(IEnvironment environment) =>
         new()
         {
-            Username = environment.GetString(EnvironmentVariable.BitbucketUsername),
-            AppPassword = environment.GetString(EnvironmentVariable.BitbucketAppPassword),
+            AccountEmail = environment.GetRequiredString(EnvironmentVariable.AccountEmail),
+            ApiToken = environment.GetRequiredString(EnvironmentVariable.ApiToken),
         };
 }

@@ -19,8 +19,8 @@ public class ReportWithNoResultsTest
             [EnvironmentVariable.BitbucketCloneDir] = "/repos",
             [EnvironmentVariable.BitbucketPrId] = null,
 
-            [EnvironmentVariable.BitbucketUsername] = "username",
-            [EnvironmentVariable.BitbucketAppPassword] = "1234",
+            [EnvironmentVariable.AccountEmail] = "user@example.com",
+            [EnvironmentVariable.ApiToken] = "1234",
 
             [EnvironmentVariable.SarifFilePath] = "test-data/without-results.sarif",
         };

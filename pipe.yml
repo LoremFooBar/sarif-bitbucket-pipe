@@ -11,3 +11,15 @@ tags:
   - sarif
   - static-analysis
   - code-insights
+variables:
+  - name: SARIF_FILE_PATH
+  - name: ACCOUNT_EMAIL
+  - name: API_TOKEN
+  - name: CREATE_BUILD_STATUS
+    default: "true"
+  - name: FAIL_WHEN_ISSUES_FOUND
+    default: "false"
+  - name: INCLUDE_ONLY_ISSUES_IN_DIFF
+    default: "false"
+  - name: DEBUG
+    default: "false"

@@ -14,8 +14,8 @@ public record struct EnvironmentVariable
     public static EnvironmentVariable IncludeOnlyIssuesInDiff { get; } = new("INCLUDE_ONLY_ISSUES_IN_DIFF");
 
     // auth options
-    public static EnvironmentVariable BitbucketUsername { get; } = new("BITBUCKET_USERNAME");
-    public static EnvironmentVariable BitbucketAppPassword { get; } = new("BITBUCKET_APP_PASSWORD");
+    public static EnvironmentVariable AccountEmail { get; } = new("ACCOUNT_EMAIL");
+    public static EnvironmentVariable ApiToken { get; } = new("API_TOKEN");
 
     // bitbucket environment
     public static EnvironmentVariable BitbucketCommit { get; } = new("BITBUCKET_COMMIT");

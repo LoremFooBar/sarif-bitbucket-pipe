@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Net;
 using System.Net.Http.Headers;
+using Duende.IdentityModel.Client;
 using LoremFooBar.SarifBitbucketPipe.BitbucketApiClient;
 using LoremFooBar.SarifBitbucketPipe.Model.Bitbucket.Report;
 using LoremFooBar.SarifBitbucketPipe.Model.Diff;
@@ -29,6 +29,7 @@ public class PipeRunner
         _environment = environment ?? new DefaultEnvironment();
         _bitbucketEnvironmentInfo = BitbucketEnvironmentInfo.FromEnvironment(_environment);
         _authOptions = BitbucketAuthenticationOptions.FromEnvironment(_environment);
+        _authOptions.Validate();
         _pipeOptions = PipeOptions.FromEnvironment(_environment);
         _bitbucketClient = CreateBitbucketClient(_bitbucketEnvironmentInfo, _pipeOptions);
     }
@@ -80,26 +81,10 @@ public class PipeRunner
         [ExcludeFromCodeCoverage(Justification = "http client for tests is injected")]
         HttpClient CreateHttpClient()
         {
-            HttpClient client;
-
-            if (_authOptions.UseAuthentication) {
-                Log.Debug("Authenticating using app password");
-                client = new HttpClient();
-
-                if (_authOptions.UseAuthentication) {
-                    client.DefaultRequestHeaders.Authorization =
-                        new BasicAuthenticationHeaderValue(_authOptions.Username, _authOptions.AppPassword);
-                }
-            }
-            else {
-                // set proxy for pipe when running in pipelines
-                const string proxyUrl = "http://host.docker.internal:29418";
-                Log.Debug("Using proxy {Proxy}", proxyUrl);
-                Log.Information("Not using authentication - can't create build status");
-                var httpClientHandler = new HttpClientHandler
-                    { Proxy = new WebProxy(proxyUrl) };
-                client = new HttpClient(httpClientHandler);
-            }
+            Log.Debug("Authenticating using API token");
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization =
+                new BasicAuthenticationHeaderValue(_authOptions.AccountEmail, _authOptions.ApiToken);
 
             return client;
         }
@@ -108,8 +93,7 @@ public class PipeRunner
         {
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.BaseAddress =
-                new Uri($"{(_authOptions.UseAuthentication ? "https" : "http")}://api.bitbucket.org" +
-                        "/2.0/repositories/" +
+                new Uri($"https://api.bitbucket.org/2.0/repositories/" +
                         $"{bitbucketEnvironmentInfo.Workspace}/{bitbucketEnvironmentInfo.RepoSlug}/");
 
             return client;

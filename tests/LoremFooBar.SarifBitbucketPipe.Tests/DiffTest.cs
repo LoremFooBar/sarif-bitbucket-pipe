@@ -19,6 +19,9 @@ public class DiffTest
             [EnvironmentVariable.BitbucketCloneDir] = "/repos",
             [EnvironmentVariable.BitbucketPrId] = "51",
 
+            [EnvironmentVariable.AccountEmail] = "user@example.com",
+            [EnvironmentVariable.ApiToken] = "1234",
+
             [EnvironmentVariable.SarifFilePath] = "test-data/diff/with-results.sarif",
             [EnvironmentVariable.IncludeOnlyIssuesInDiff] = "true",
         };

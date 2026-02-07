@@ -13,6 +13,11 @@
         "resolved": "2.0.0",
         "contentHash": "mbR47t3hnUhJEgK6+/ROC3ekFy8a9SnoZGBk4Qzs7S1BW6YR81mXfW2UM4A2BM6e00hIdJUYyDq+tC+vB+rkzw=="
       },
+      "Duende.IdentityModel": {
+        "type": "Transitive",
+        "resolved": "8.0.0",
+        "contentHash": "8i+Tv4c38LgwoTRKbD0+MqtnNNDSVA83G6JkjGHgC4/7jH0nxZBP0RBhH8xTsvNQ5Pv9zrg+TR8rmtWK9HDOPg=="
+      },
       "Macross.Json.Extensions": {
         "type": "Transitive",
         "resolved": "3.0.0",
@@ -60,6 +65,7 @@
         "type": "Project",
         "dependencies": {
           "DiffPatch": "[2.0.0, )",
+          "Duende.IdentityModel": "[8.0.0, )",
           "Macross.Json.Extensions": "[3.0.0, )",
           "Sarif.Sdk": "[4.6.0, )",
           "Serilog": "[4.3.0, )",
