@@ -10,10 +10,10 @@
 
   <ItemGroup>
     <PackageReference Include="DiffPatch" Version="2.0.0"/>
-    <PackageReference Include="Duende.IdentityModel" Version="8.0.0" />
+    <PackageReference Include="Duende.IdentityModel" Version="8.1.0" />
     <PackageReference Include="Macross.Json.Extensions" Version="3.0.0"/>
-    <PackageReference Include="Sarif.Sdk" Version="4.6.0" />
-    <PackageReference Include="Serilog" Version="4.3.0" />
+    <PackageReference Include="Sarif.Sdk" Version="4.6.3" />
+    <PackageReference Include="Serilog" Version="4.3.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
     <PackageReference Update="JetBrains.Annotations" Version="2025.2.4" />
   </ItemGroup>

@@ -15,8 +15,8 @@
       },
       "Duende.IdentityModel": {
         "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "8i+Tv4c38LgwoTRKbD0+MqtnNNDSVA83G6JkjGHgC4/7jH0nxZBP0RBhH8xTsvNQ5Pv9zrg+TR8rmtWK9HDOPg=="
+        "resolved": "8.1.0",
+        "contentHash": "ncmC2ISg0efTqY74xI6gaLKlv4mErT5ruYK262dkSnAv07g9qYC2++q7AWWs1FyP2c0YZ6LvUtcoJmxZqYyVrA=="
       },
       "Macross.Json.Extensions": {
         "type": "Transitive",
@@ -40,8 +40,8 @@
       },
       "Sarif.Sdk": {
         "type": "Transitive",
-        "resolved": "4.6.0",
-        "contentHash": "Zan9vtI/ktnOQ03XdhA2bO3aCjaFGj6f6TVzHlRUQuZAsH4PGvQ2We0VchU+c41/uHcSgtWHmOBxPCr+JapxrQ==",
+        "resolved": "4.6.3",
+        "contentHash": "uEt+lyu0SiS0iZP056ycZyic0GqFf5EYTi5Dh4KbRxWqfRsOwKK7eB7D0rOt6uZxlDg2E7q5rgEbvWgR/6B0zg==",
         "dependencies": {
           "Microsoft.Diagnostics.Tracing.EventRegister": "1.1.28",
           "Microsoft.Diagnostics.Tracing.TraceEvent": "3.1.3",
@@ -50,8 +50,8 @@
       },
       "Serilog": {
         "type": "Transitive",
-        "resolved": "4.3.0",
-        "contentHash": "+cDryFR0GRhsGOnZSKwaDzRRl4MupvJ42FhCE4zhQRVanX0Jpg6WuCBk59OVhVDPmab1bB+nRykAnykYELA9qQ=="
+        "resolved": "4.3.1",
+        "contentHash": "savYe7h5yRlkqBVOwP8cIRDOdqKiPmYCU4W87JH38sBmcKD5EBoXvQIw6bNEvZ/pTe1gsiye3VFCzBsoppGkXQ=="
       },
       "Serilog.Sinks.Console": {
         "type": "Transitive",
@@ -65,10 +65,10 @@
         "type": "Project",
         "dependencies": {
           "DiffPatch": "[2.0.0, )",
-          "Duende.IdentityModel": "[8.0.0, )",
+          "Duende.IdentityModel": "[8.1.0, )",
           "Macross.Json.Extensions": "[3.0.0, )",
-          "Sarif.Sdk": "[4.6.0, )",
-          "Serilog": "[4.3.0, )",
+          "Sarif.Sdk": "[4.6.3, )",
+          "Serilog": "[4.3.1, )",
           "Serilog.Sinks.Console": "[6.1.1, )"
         }
       }
